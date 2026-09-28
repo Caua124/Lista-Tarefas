@@ -5,7 +5,7 @@ tarefas = []
 
 def criar_tarefa():
     descricao = input("Digite a descrição da tarefa: ")
-    data_criacao = datetime.datetime.now()
+    data_criacao = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     tarefa = {"descricao": descricao, "data_criacao": data_criacao, "concluida": False}
     tarefas.append(tarefa)
     print(Fore.GREEN + "Tarefa adicionada com sucesso!" + Style.RESET_ALL)
@@ -15,7 +15,7 @@ def listar_tarefas():
         print(Fore.RED + "Nenhuma tarefa cadastrada!" + Style.RESET_ALL)
 
     for tarefa in tarefas:
-        print(tarefa["descricao"], tarefa["data_criacao"], tarefa["concluida"])
+        print(Fore.BLUE + f"Tarefa: {tarefa["descricao"], tarefa["data_criacao"], tarefa["concluida"]}" + Style.RESET_ALL)
 
 def concluir_tarefa():
     if not tarefas:
@@ -37,7 +37,7 @@ def procurar_tarefa():
     for tarefa in tarefas:
         if busca == tarefa["descricao"]:
             print(Fore.GREEN + "Tarefa encontrada!" + Style.RESET_ALL)
-            print(tarefa["descricao"], tarefa["data_criacao"], tarefa["concluida"])    
+            print(Fore.BLUE + f"Tarefa: {tarefa["descricao"], tarefa["data_criacao"], tarefa["concluida"]}" + Style.RESET_ALL)    
         else:
             print(Fore.RED + "Tarefa não encontrada!" + Style.RESET_ALL)
 
